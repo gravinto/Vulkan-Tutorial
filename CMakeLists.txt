@@ -5,6 +5,7 @@ option(ENABLE_CPP20_MODULE "Build the Vulkan-Hpp C++20 module target" OFF)
 
 find_package (Vulkan REQUIRED)
 find_package (glm REQUIRED)
+find_package (glfw3 3.4 REQUIRED)
 
 # set up Vulkan C++ module (enabled when ENABLE_CPP20_MODULE=ON)
 add_library(VulkanCppModule)
@@ -31,3 +32,4 @@ target_sources(VulkanCppModule
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries (${PROJECT_NAME} PRIVATE Vulkan::cppm)
 target_link_libraries (${PROJECT_NAME} PRIVATE glm::glm)
+target_link_libraries (${PROJECT_NAME} PRIVATE glfw)
